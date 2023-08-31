@@ -3,16 +3,34 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+configure<ExtraPropertiesExtension> {
+    set("useCore", true)
+    set("useKtxCore", true)
+    set("useTesting", true)
+    set("useSupportLibrary", false)
+    set("useRetrofit", false)
+    set("useScalar", false)
+    set("useGson", false)
+    set("useGlide", false)
+    set("useCoil", false)
+    set("useRxJava", false)
+    set("useTimber", false)
+    set("useKtxUi", false)
+    set("useKtxNavigation", false)
+    set("useKtxWorkManager", false)
+    set("useKtxRoom", false)
+}
+
 apply(from = "../common-dependencies.gradle")
 
 android {
     namespace = "com.yaman.multiplemoduleapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.yaman.multiplemoduleapp"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -22,7 +40,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -36,8 +57,4 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
