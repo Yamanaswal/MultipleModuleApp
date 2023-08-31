@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -9,8 +9,8 @@ configure<ExtraPropertiesExtension> {
     set("useTesting", true)
     set("useSupportLibrary", false)
     set("useRetrofit", true)
-    set("useScalar", false)
-    set("useGson", false)
+    set("useScalar", true)
+    set("useGson", true)
     set("useGlide", false)
     set("useCoil", false)
     set("useRxJava", false)
@@ -25,18 +25,16 @@ configure<ExtraPropertiesExtension> {
 
 apply(from = "../common-dependencies.gradle")
 
+
 android {
-    namespace = "com.yaman.multiplemoduleapp"
-    compileSdk = 34
+    namespace = "com.yaman.network_module"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.yaman.multiplemoduleapp"
         minSdk = 23
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -58,5 +56,5 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":network_module")))
+
 }
