@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
        val retrofitClient = NetworkCore.getNetworkService(this,"")
        val api = retrofitClient.create(Api::class.java)
+
        api.getData().enqueue(object : BaseCallback<String>(this) {
             override fun onResponse(call: Call<String>, response: Response<String>) {
 
