@@ -5,6 +5,29 @@ plugins {
     kotlin("kapt")
 }
 
+configure<ExtraPropertiesExtension> {
+    set("useCore", true)
+    set("useKtxCore", true)
+    set("useTesting", false)
+    set("useSupportLibrary", false)
+    set("useRetrofit", false)
+    set("useScalar", false)
+    set("useGson", false)
+    set("useGlide", false)
+    set("useCoil", false)
+    set("useRxJava", false)
+    set("useTimber", false)
+    set("useKtxUi", false)
+    set("useKtxNavigation", false)
+    set("useKtxWorkManager", false)
+    set("useKtxRoom", false)
+    set("useHilt", false)
+    set("useCoroutines", false)
+}
+
+apply(from = "../common-dependencies.gradle")
+
+
 android {
     namespace = "com.yaman.common_utils"
     compileSdk = 33
