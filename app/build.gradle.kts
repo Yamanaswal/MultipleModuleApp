@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
 configure<ExtraPropertiesExtension> {
@@ -58,5 +59,13 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":network_module")))
+    //Local Module
+//    implementation(project(mapOf("path" to ":network_module")))
+    implementation ("com.github.Yamanaswal:MultipleModuleApp:1.0.0")
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

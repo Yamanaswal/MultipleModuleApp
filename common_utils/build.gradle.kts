@@ -5,31 +5,8 @@ plugins {
     kotlin("kapt")
 }
 
-configure<ExtraPropertiesExtension> {
-    set("useCore", true)
-    set("useKtxCore", true)
-    set("useTesting", false)
-    set("useSupportLibrary", false)
-    set("useRetrofit", true)
-    set("useScalar", true)
-    set("useGson", true)
-    set("useGlide", false)
-    set("useCoil", false)
-    set("useRxJava", false)
-    set("useTimber", false)
-    set("useKtxUi", false)
-    set("useKtxNavigation", false)
-    set("useKtxWorkManager", false)
-    set("useKtxRoom", false)
-    set("useHilt", false)
-    set("useCoroutines", false)
-}
-
-apply(from = "../common-dependencies.gradle")
-
-
 android {
-    namespace = "com.yaman.network_module"
+    namespace = "com.yaman.common_utils"
     compileSdk = 33
 
     defaultConfig {
@@ -57,13 +34,14 @@ android {
     }
 }
 
-dependencies {}
+dependencies {
+}
 
 publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.Yamanaswal"
-            artifactId = "network-module"
+            artifactId = "common-utils-module"
             version = "1.0.0"
 
             afterEvaluate {
