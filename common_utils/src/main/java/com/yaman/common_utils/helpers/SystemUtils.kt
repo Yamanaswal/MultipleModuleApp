@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import com.yaman.common_utils.helpers.enums.DeviceType
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,11 +30,11 @@ object SystemUtils {
     }
 
     /**  Device Type  (Mobile or Tablet) **/
-    fun getDeviceType(context: Context): String {
+    fun getDeviceType(context: Context): DeviceType {
         return if ((context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE) {
-            "Tablet"
+            DeviceType.TABLET
         } else {
-            "Mobile"
+            DeviceType.MOBILE
         }
     }
 
@@ -88,16 +89,20 @@ object SystemUtils {
 
 
     /**  TimeStamp to Date (String) Conversion. **/
-    fun convertTimestampToDate(timeStamp: String?, datePattern: String?): String? {
-        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-        val defaultTimeZone = TimeZone.getDefault()
-        val strDefaultTimeZone = defaultTimeZone.getDisplayName(false, TimeZone.SHORT)
-        format.timeZone = TimeZone.getTimeZone(strDefaultTimeZone)
+    fun convertTimestampToDate(
+        dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+        timeStamp: String,
+        datePattern: String
+    ): String? {
         try {
+            val format = SimpleDateFormat(dateFormat, Locale.getDefault())
+            val defaultTimeZone = TimeZone.getDefault()
+            val strDefaultTimeZone = defaultTimeZone.getDisplayName(false, TimeZone.SHORT)
+            format.timeZone = TimeZone.getTimeZone(strDefaultTimeZone)
             val date = format.parse(timeStamp)
-            return SimpleDateFormat(datePattern).format(date)
-        } catch (e: ParseException) {
-            e.printStackTrace()
+            return SimpleDateFormat(datePattern, Locale.getDefault()).format(date!!)
+        } catch (e: Exception) {
+            Log.e("Error: ", "convertTimestampToDate: " + e.message)
         }
         return null
     }

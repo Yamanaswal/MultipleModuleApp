@@ -23,3 +23,4 @@ rootProject.name = "MultipleModuleApp"
 include(":app")
 include(":network_module")
 include(":common_utils")
+include(":common_ui_tools")
