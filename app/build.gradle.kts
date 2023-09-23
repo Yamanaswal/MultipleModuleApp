@@ -63,7 +63,6 @@ dependencies {
     implementation(project(mapOf("path" to ":common_ui_tools")))
     implementation(project(mapOf("path" to ":common_utils")))
     implementation(project(mapOf("path" to ":network_module")))
-
 }
 
 // Allow references to generated code

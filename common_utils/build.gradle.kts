@@ -63,10 +63,6 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.github.Yamanaswal"
-            artifactId = "common-utils-module"
-            version = "1.0.0"
-
             afterEvaluate {
                 from(components["release"])
             }

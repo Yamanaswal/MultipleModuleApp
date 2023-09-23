@@ -68,10 +68,6 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.github.Yamanaswal"
-            artifactId = "common-ui-tools-module"
-            version = "1.0.0"
-
             afterEvaluate {
                 from(components["release"])
             }
