@@ -60,8 +60,9 @@ android {
 
 dependencies {
     //Local Module
-//    implementation(project(mapOf("path" to ":network_module")))
-    implementation ("com.github.Yamanaswal:MultipleModuleApp:1.0.0")
+    implementation(project(mapOf("path" to ":common_ui_tools")))
+    implementation(project(mapOf("path" to ":common_utils")))
+    implementation(project(mapOf("path" to ":network_module")))
 
 }
 

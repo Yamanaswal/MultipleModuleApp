@@ -3,7 +3,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
-import com.yaman.common_utils.helpers.runtime_permissions.model.PermissionResultListener
+import com.yaman.runtime_permissions.model.PermissionResultListener
 
 /**
  * A simple abstract [Fragment] subclass.

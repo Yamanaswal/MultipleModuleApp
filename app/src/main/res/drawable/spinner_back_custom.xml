@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- spinner_background_custom.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    &lt;!&ndash; Background for the Spinner (make it clickable) &ndash;&gt;-->
+<!--    <item android:drawable="@android:drawable/btn_dropdown" />-->
+
+    <!-- Transparent arrow area (to hide the arrow) -->
+    <item android:drawable="@android:color/transparent">
+        <shape android:shape="rectangle">
+            <size android:width="16dp" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list>

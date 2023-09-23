@@ -60,3 +60,17 @@ android {
 dependencies {
 
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.Yamanaswal"
+            artifactId = "runtime_permissions-module"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}

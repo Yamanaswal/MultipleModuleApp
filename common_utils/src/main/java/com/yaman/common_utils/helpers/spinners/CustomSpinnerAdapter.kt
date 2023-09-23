@@ -1,4 +1,4 @@
-package com.yaman.common_utils.helpers
+package com.yaman.common_utils.helpers.spinners
 
 import android.content.Context
 import android.graphics.Color
