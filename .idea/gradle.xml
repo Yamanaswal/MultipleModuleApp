@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/common_ui_tools" />
             <option value="$PROJECT_DIR$/common_utils" />
             <option value="$PROJECT_DIR$/network_module" />
+            <option value="$PROJECT_DIR$/pdf_viewer" />
             <option value="$PROJECT_DIR$/runtime_permissions" />
           </set>
         </option>

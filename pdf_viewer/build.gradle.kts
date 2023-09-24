@@ -1,15 +1,17 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
+    id("kotlin-kapt")
     kotlin("kapt")
 }
 
 configure<ExtraPropertiesExtension> {
     set("useCore", true)
     set("useKtxCore", true)
-    set("useTesting", true)
+    set("useTesting", false)
     set("useSupportLibrary", false)
-    set("useRetrofit", true)
+    set("useRetrofit", false)
     set("useScalar", false)
     set("useGson", false)
     set("useGlide", false)
@@ -21,23 +23,21 @@ configure<ExtraPropertiesExtension> {
     set("useKtxWorkManager", false)
     set("useKtxRoom", false)
     set("useHilt", false)
-    set("useCoroutines", false)
+    set("useCoroutines", true)
 }
 
 apply(from = "../common-dependencies.gradle")
 
+
 android {
-    namespace = "com.yaman.multiplemoduleapp"
-    compileSdk = 34
+    namespace = "com.yaman.pdf_viewer"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.yaman.multiplemoduleapp"
         minSdk = 23
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -59,14 +59,18 @@ android {
 }
 
 dependencies {
-    //Local Module
-    implementation(project(mapOf("path" to ":common_ui_tools")))
-    implementation(project(mapOf("path" to ":common_utils")))
-    implementation(project(mapOf("path" to ":network_module")))
-    implementation(project(mapOf("path" to ":pdf_viewer")))
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
 
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
