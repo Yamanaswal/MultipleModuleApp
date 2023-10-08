@@ -67,3 +67,22 @@ fun openPdfDocumentPicker(activity: Activity) {
     }
     activity.startActivityForResult(intent, OPEN_PDF_DOCUMENT_REQUEST_CODE)
 }
+
+fun splitPdfIntoSections(pdfRenderer: PdfRenderer): List<PdfSection> {
+    val pdfSections = mutableListOf<PdfSection>()
+    val pageCount = pdfRenderer.pageCount
+    var page = 1
+    val pagesPerSection = 5  // Adjust this based on your desired section size
+
+    for (i in 0 until pageCount step pagesPerSection) {
+        val sectionStart = i
+        val sectionEnd = minOf(i + pagesPerSection, pageCount)
+        val section = PdfSection(sectionStart, sectionEnd, page)
+        pdfSections.add(section)
+        page++
+    }
+
+    return pdfSections
+}
+
+data class PdfSection(val startPage: Int, val endPage: Int, val page: Int)

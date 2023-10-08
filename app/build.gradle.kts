@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
 
@@ -20,7 +21,7 @@ configure<ExtraPropertiesExtension> {
     set("useKtxNavigation", false)
     set("useKtxWorkManager", false)
     set("useKtxRoom", false)
-    set("useHilt", false)
+    set("useHilt", true)
     set("useCoroutines", false)
 }
 

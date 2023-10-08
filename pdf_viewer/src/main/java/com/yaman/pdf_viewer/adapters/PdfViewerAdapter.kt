@@ -18,7 +18,7 @@ class PdfViewerAdapter(
     private val pageWidth: Int
 ) : RecyclerView.Adapter<PdfViewerAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(bitmap: Bitmap) = (itemView as ImageView).setImageBitmap(bitmap)
     }
 
@@ -29,6 +29,7 @@ class PdfViewerAdapter(
 
     override fun getItemCount() = renderer.pageCount
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(renderer.openPage(position).renderAndClose(pageWidth))
+    }
 }

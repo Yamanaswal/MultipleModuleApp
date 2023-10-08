@@ -5,15 +5,23 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
+import android.view.View
 import android.view.WindowManager
+import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.yaman.pdf_viewer.R
 import com.yaman.pdf_viewer.adapters.PdfViewerAdapter
+import com.yaman.pdf_viewer.helpers.PdfSection
+import com.yaman.pdf_viewer.helpers.splitPdfIntoSections
 
 class PdfViewerActivity : AppCompatActivity() {
+
+    private lateinit var pdfRenderer: PdfRenderer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_viewer)
@@ -53,13 +61,16 @@ class PdfViewerActivity : AppCompatActivity() {
         val fileDescriptor = contentResolver.openFileDescriptor(documentUri, "r") ?: return
 
         // This is the PdfRenderer we use to render the PDF.
-        val pdfRenderer = PdfRenderer(fileDescriptor)
+        pdfRenderer = PdfRenderer(fileDescriptor)
+        val pdfSections: List<PdfSection> = splitPdfIntoSections(pdfRenderer)
+        Log.e(TAG, "openPdfDocument: pdfSections: $pdfSections")
         recyclerView.adapter = PdfViewerAdapter(pdfRenderer, pageWidth)
+        findViewById<ProgressBar>(R.id.progress).visibility = View.GONE
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
+        findViewById<ProgressBar>(R.id.progress).visibility = View.VISIBLE
         if (requestCode == OPEN_DOCUMENT_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             resultData?.data?.also { documentUri ->
 
@@ -98,6 +109,12 @@ class PdfViewerActivity : AppCompatActivity() {
         return displayMetrics.widthPixels
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if(this::pdfRenderer.isInitialized){
+            pdfRenderer.close()
+        }
+    }
 }
 
 
