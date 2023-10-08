@@ -1,7 +1,6 @@
 package com.yaman.multiplemoduleapp
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.startService).setOnClickListener {
 //            PdfViewer.openPdfDocumentPicker(this)
             startActivity(Intent(this, PdfViewerActivity::class.java))
+//            openPdfDocumentPicker(this)
             /*Intent(this,RunningService::class.java).also {
                 it.action = BaseService.Action.START.toString()
 //                it.putExtra(BaseService.NOTIFICATION_DATA,

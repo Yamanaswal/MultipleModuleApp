@@ -1,6 +1,8 @@
 package com.yaman.pdf_viewer.helpers
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.os.ParcelFileDescriptor
@@ -12,6 +14,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.concurrent.Executors
+
+private const val OPEN_PDF_DOCUMENT_REQUEST_CODE = 0x33
+private const val TAG = "PdfViewer"
 
 suspend fun renderSinglePage(filePath: String, width: Int) = withContext(Dispatchers.IO) {
     PdfRenderer(
@@ -42,3 +47,23 @@ fun openPdfDocument(
     recyclerView.adapter = PdfViewerAdapter(pdfRenderer, pageWidth)
 }
 
+
+fun openPdfDocumentPicker(activity: Activity) {
+    val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+        /**
+         * It's possible to limit the types of files by mime-type. Since this
+         * app displays pages from a PDF file, we'll specify `application/pdf`
+         * in `type`.
+         * See [Intent.setType] for more details.
+         */
+        type = "application/pdf"
+
+        /**
+         * Because we'll want to use [ContentResolver.openFileDescriptor] to read
+         * the data of whatever file is picked, we set [Intent.CATEGORY_OPENABLE]
+         * to ensure this will succeed.
+         */
+        addCategory(Intent.CATEGORY_OPENABLE)
+    }
+    activity.startActivityForResult(intent, OPEN_PDF_DOCUMENT_REQUEST_CODE)
+}
