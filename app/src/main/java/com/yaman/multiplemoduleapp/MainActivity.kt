@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.core.app.ActivityCompat
 import com.yaman.pdf_viewer.ui.PdfViewerActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
