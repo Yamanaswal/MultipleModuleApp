@@ -10,8 +10,7 @@ import com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_hom
 import com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_homogenous.view_holders.BaseViewHolder
 
 /** Generic Adapter For Homogenous Recycler View */
-abstract class GenericAdapter<T : Any>(@LayoutRes val layoutId: Int) :
-    ListAdapter<T, BaseViewHolder<T>>(BaseItemCallback<T>()) {
+abstract class GenericAdapter<T : Any>(@LayoutRes val layoutId: Int) : ListAdapter<T, BaseViewHolder<T>>(BaseItemCallback<T>()) {
 
     //Custom List
     private var items = mutableListOf<T>()
