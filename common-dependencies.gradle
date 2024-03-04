@@ -101,6 +101,10 @@ dependencies {
     if (useCoroutines) {
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     }
+
+    if(usePlayCore) {
+        implementation("com.google.android.play:core:1.10.3")
+    }
 }
 
 ext {
@@ -122,4 +126,5 @@ ext {
     useKtxRoom = false
     useHilt = false
     useCoroutines = false
+    usePlayCore = false
 }

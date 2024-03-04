@@ -25,6 +25,7 @@ configure<ExtraPropertiesExtension> {
     set("useKtxRoom", false)
     set("useHilt", false)
     set("useCoroutines", true)
+    set("usePlayCore", false)
 }
 
 apply(from = "../common-dependencies.gradle")

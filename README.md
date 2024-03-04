@@ -26,6 +26,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module: "background_task")
    exclude(module: "fragments")
    exclude(module: "recycler_view")
+   exclude(module: "google_play")
 }
 
 
@@ -39,6 +40,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "background_task")
    exclude(module = "fragment")
    exclude(module = "recycler_view")
+   exclude(module = "google_play")
 }
 
 ## License

@@ -24,6 +24,7 @@ configure<ExtraPropertiesExtension> {
     set("useKtxRoom", false)
     set("useHilt", false)
     set("useCoroutines", true)
+    set("usePlayCore", false)
 }
 
 apply(from = "../common-dependencies.gradle")
@@ -31,7 +32,7 @@ apply(from = "../common-dependencies.gradle")
 
 android {
     namespace = "com.yaman.pdf_viewer"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23
@@ -60,9 +61,6 @@ android {
 
 dependencies {
 
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
 
 publishing {
