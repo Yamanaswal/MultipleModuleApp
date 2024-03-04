@@ -1,12 +1,12 @@
-package com.yaman.common_ui_tools.generic_recycler_views.basic.adapters
+package com.yaman.recycler_view.generic_recycler_views.core.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.yaman.common_ui_tools.generic_recycler_views.basic.model.RecyclerViewData
-import com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_homogenous.view_holders.BaseViewHolder
+import com.yaman.recycler_view.generic_recycler_views.core.models.RecyclerViewData
+import com.yaman.recycler_view.generic_recycler_views.core.view_holders.BaseViewHolder
 
 abstract class GenericMultipleViewAdapter<T : Any>(private val recyclerViewDataList: List<RecyclerViewData>) :
     RecyclerView.Adapter<BaseViewHolder<T>>() {

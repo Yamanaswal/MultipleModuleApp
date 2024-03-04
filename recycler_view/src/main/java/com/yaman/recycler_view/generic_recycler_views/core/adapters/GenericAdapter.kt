@@ -1,4 +1,4 @@
-package com.yaman.common_ui_tools.generic_recycler_views.basic.adapters
+package com.yaman.recycler_view.generic_recycler_views.core.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
-import com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_homogenous.view_holders.BaseItemCallback
-import com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_homogenous.view_holders.BaseViewHolder
+import com.yaman.recycler_view.generic_recycler_views.core.view_holders.BaseItemCallback
+import com.yaman.recycler_view.generic_recycler_views.core.view_holders.BaseViewHolder
 
 /** Generic Adapter For Homogenous Recycler View */
 abstract class GenericAdapter<T : Any>(@LayoutRes val layoutId: Int) : ListAdapter<T, BaseViewHolder<T>>(BaseItemCallback<T>()) {

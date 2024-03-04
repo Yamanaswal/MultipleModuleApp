@@ -1,4 +1,4 @@
-package com.yaman.common_ui_tools.generic_fragments
+package com.yaman.fragments.generic_fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import androidx.fragment.app.Fragment
 
-open class GenericBottomSheetFragment<T : ViewDataBinding>(@LayoutRes private val layoutResId : Int) : BottomSheetDialogFragment(){
+open class GenericFragment<T : ViewDataBinding>(@LayoutRes private val layoutResId : Int) : Fragment(){
 
     private var _binding : T? = null
     val binding : T get() = _binding!!
@@ -32,10 +32,6 @@ open class GenericBottomSheetFragment<T : ViewDataBinding>(@LayoutRes private va
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
 }

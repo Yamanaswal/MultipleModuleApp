@@ -1,9 +1,8 @@
-import com.android.build.gradle.internal.packaging.defaultExcludes
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
+    id("kotlin-kapt")
     kotlin("kapt")
 }
 
@@ -24,18 +23,18 @@ configure<ExtraPropertiesExtension> {
     set("useKtxWorkManager", false)
     set("useKtxRoom", false)
     set("useHilt", false)
-    set("useCoroutines", true)
+    set("useCoroutines", false)
 }
 
 apply(from = "../common-dependencies.gradle")
 
 
 android {
-    namespace = "com.yaman.runtime_permissions"
-    compileSdk = 33
+    namespace = "com.yaman.recycler_view"
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,10 +43,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -56,6 +52,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        dataBinding = true
     }
 }
 

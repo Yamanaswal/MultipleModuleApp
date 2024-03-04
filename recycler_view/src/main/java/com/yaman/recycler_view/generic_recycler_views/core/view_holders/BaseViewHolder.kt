@@ -1,4 +1,4 @@
-package com.yaman.library_tools.app_utils.generic_recycler_view.recycler_view_homogenous.view_holders
+package com.yaman.recycler_view.generic_recycler_views.core.view_holders
 
 import android.annotation.SuppressLint
 import androidx.databinding.ViewDataBinding

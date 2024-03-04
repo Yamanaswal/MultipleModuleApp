@@ -1,4 +1,4 @@
-package com.yaman.common_ui_tools.generic_recycler_views.basic.model
+package com.yaman.recycler_view.generic_recycler_views.core.models
 
 import androidx.annotation.LayoutRes
 
