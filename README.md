@@ -1,24 +1,22 @@
-###### Usage #######
+# Usage For Library
 
-#### Required For Dependency. #######
+## Dependency (Required)
 
-# For Groovy
+### For Groovy
 maven { url 'https://jitpack.io' }
-
-# For Kotlin Gradle - build.gradle.kts
+### For Kotlin Gradle - build.gradle.kts
 maven("https://jitpack.io")
 
-### Include All Modules
 
-## For Groovy 
+## Include All Modules
+### For Groovy 
 implementation 'com.github.Yamanaswal:MultipleModuleApp:1.0.3'
-
-## For Kotlin Gradle - build.gradle.kts
+### For Kotlin Gradle - build.gradle.kts
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3")
 
-### Include No Modules
+## Include No Modules
 
-## For Groovy
+### For Groovy
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module: "pdf_viewer")
    exclude(module: "runtime_permissions")
@@ -29,7 +27,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
 }
 
 
-## For Kotlin Gradle - build.gradle.kts
+### For Kotlin Gradle - build.gradle.kts
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "pdf_viewer")
    exclude(module = "runtime_permissions")
@@ -38,3 +36,4 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "common_utils")
    exclude(module = "common_ui_tools")
 }
+
