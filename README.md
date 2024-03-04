@@ -37,3 +37,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "common_ui_tools")
 }
 
+
+
+## License
+This project is licensed under the [MIT License](LICENSE).
