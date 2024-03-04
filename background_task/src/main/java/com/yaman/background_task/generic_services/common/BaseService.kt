@@ -1,4 +1,4 @@
-package com.yaman.common_ui_tools.generic_services.common
+package com.yaman.background_task.generic_services.common
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -9,7 +9,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
-import com.yaman.common_ui_tools.R
+import com.yaman.background_task.R
 import java.io.Serializable
 
 abstract class BaseService : Service() {

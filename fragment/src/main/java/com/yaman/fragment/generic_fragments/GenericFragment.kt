@@ -1,4 +1,4 @@
-package com.yaman.fragments.generic_fragments
+package com.yaman.fragment.generic_fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ open class GenericFragment<T : ViewDataBinding>(@LayoutRes private val layoutRes
     private var _binding : T? = null
     val binding : T get() = _binding!!
 
-    // Make it open, so it can be overridden in child fragments
+    // Make it open, so it can be overridden in child fragment
     open fun T.initialize(){}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

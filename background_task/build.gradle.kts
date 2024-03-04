@@ -30,7 +30,7 @@ apply(from = "../common-dependencies.gradle")
 
 
 android {
-    namespace = "com.yaman.fragments"
+    namespace = "com.yaman.background_task"
     compileSdk = 34
 
     defaultConfig {
@@ -43,7 +43,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {

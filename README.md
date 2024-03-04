@@ -23,7 +23,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module: "network_module")
    exclude(module: "file_system")
    exclude(module: "common_utils")
-   exclude(module: "common_ui_tools")
+   exclude(module: "background_task")
    exclude(module: "fragments")
    exclude(module: "recycler_view")
 }
@@ -36,8 +36,8 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "network_module")
    exclude(module = "file_system")
    exclude(module = "common_utils")
-   exclude(module = "common_ui_tools")
-   exclude(module = "fragments")
+   exclude(module = "background_task")
+   exclude(module = "fragment")
    exclude(module = "recycler_view")
 }
 
