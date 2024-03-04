@@ -98,6 +98,8 @@ class InAppUpdate(private val activity: AppCompatActivity, val installStatus: (i
         }
     }
 
+
+
     fun onDestroy() {
         appUpdateManager?.unregisterListener(installStateUpdatedListener)
     }
