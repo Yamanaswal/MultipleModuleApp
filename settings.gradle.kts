@@ -23,7 +23,6 @@ rootProject.name = "MultipleModuleApp"
 include(":app")
 include(":network_module")
 include(":common_utils")
-include(":background_task")
 include(":runtime_permissions")
 include(":pdf_viewer")
 include(":file_system")
