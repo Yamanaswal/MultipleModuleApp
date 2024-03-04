@@ -1,8 +1,8 @@
-package com.yaman.common_utils.helpers
+package com.yaman.common_utils.logging
 
 import android.util.Log
 
-object LogUtils {
+object Logger {
 
     private var isDebuggable = true
         set(value) {

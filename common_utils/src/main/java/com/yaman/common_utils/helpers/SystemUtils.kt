@@ -14,6 +14,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import com.yaman.common_utils.helpers.enums.DeviceType
+import com.yaman.common_utils.logging.Logger
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -75,15 +76,13 @@ object SystemUtils {
 
     /**  Close Keyboard (binding.getRoot().getWindowToken() => windowToken) **/
     fun closeKeyboard(context: Context, windowToken: IBinder) {
-        val inputMethodManager =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
     }
 
     /**  Open Keyboard (requireView()) **/
     fun openKeyboard(context: Context, view: View) {
-        val inputMethodManager =
-            context.getSystemService(Service.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager = context.getSystemService(Service.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInputFromInputMethod(view.windowToken, 0)
     }
 
@@ -115,7 +114,7 @@ object SystemUtils {
             val output = SimpleDateFormat("hh:mm a", Locale.getDefault())
             return data?.let { it1 -> output.format(it1) }.toString()
         } catch (e: Exception) {
-            LogUtils.e("convertTimeFormat Exception: : ", e.localizedMessage)
+            Logger.e("convertTimeFormat Exception: : ", e.localizedMessage)
         }
         return ""
     }
@@ -128,7 +127,7 @@ object SystemUtils {
             val output = SimpleDateFormat("HH:mm", Locale.getDefault())
             return data?.let { it1 -> output.format(it1) }.toString()
         } catch (e: Exception) {
-            LogUtils.e("convertTimeFormat Exception: : ", e.localizedMessage)
+            Logger.e("convertTimeFormat Exception: : ", e.localizedMessage)
         }
         return ""
     }

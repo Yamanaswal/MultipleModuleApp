@@ -1,4 +1,4 @@
-package com.yaman.common_utils.helpers
+package com.yaman.common_utils.validations
 
 import android.util.Patterns
 import com.yaman.common_utils.helpers.enums.PasswordStrength
@@ -78,7 +78,7 @@ object FormValidation {
 
 
     /**
-     * India PinCode Validation
+     * Password Validation
      * **/
     @JvmStatic
     fun validatePasswordStrong(password: String?,passwordStrength: PasswordStrength): Boolean {

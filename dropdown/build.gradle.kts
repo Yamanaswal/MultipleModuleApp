@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
+    id("kotlin-kapt")
     kotlin("kapt")
 }
 
@@ -10,9 +11,9 @@ configure<ExtraPropertiesExtension> {
     set("useKtxCore", true)
     set("useTesting", false)
     set("useSupportLibrary", false)
-    set("useRetrofit", true)
-    set("useScalar", true)
-    set("useGson", true)
+    set("useRetrofit", false)
+    set("useScalar", false)
+    set("useGson", false)
     set("useGlide", false)
     set("useCoil", false)
     set("useRxJava", false)
@@ -28,13 +29,12 @@ configure<ExtraPropertiesExtension> {
 
 apply(from = "../common-dependencies.gradle")
 
-
 android {
-    namespace = "com.yaman.network_module"
+    namespace = "com.yaman.dropdown"
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -43,10 +43,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -58,7 +55,9 @@ android {
     }
 }
 
-dependencies {}
+
+dependencies {
+}
 
 publishing {
     publications {

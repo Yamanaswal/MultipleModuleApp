@@ -1,4 +1,4 @@
-package com.yaman.common_utils.helpers.exception_handlers
+package com.yaman.common_utils.exception_handlers
 
 import android.os.Handler
 import android.os.Looper

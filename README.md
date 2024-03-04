@@ -17,7 +17,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3")
 ## Include No Modules
 
 ### For Groovy
-implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
+implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module: "pdf_viewer")
    exclude(module: "runtime_permissions")
    exclude(module: "network_module")
@@ -27,11 +27,12 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module: "fragments")
    exclude(module: "recycler_view")
    exclude(module: "google_play")
+   exclude(module: "dropdown")
 }
 
 
 ### For Kotlin Gradle - build.gradle.kts
-implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
+implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "pdf_viewer")
    exclude(module = "runtime_permissions")
    exclude(module = "network_module")
@@ -41,6 +42,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3") {
    exclude(module = "fragment")
    exclude(module = "recycler_view")
    exclude(module = "google_play")
+   exclude(module = "dropdown")
 }
 
 ## License

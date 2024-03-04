@@ -1,4 +1,4 @@
-package com.yaman.common_utils.helpers
+package com.yaman.common_utils.session_manager
 
 import android.content.Context
 import android.content.SharedPreferences
