@@ -2,8 +2,10 @@ package com.yaman.google_play.in_app_update
 
 import android.app.Activity
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
@@ -82,6 +84,18 @@ class InAppUpdate(private val activity: AppCompatActivity, val installStatus: (i
             }
         }
 
+    }
+
+    // Displays the snackbar notification and call to action.
+    fun popupSnackbarForCompleteUpdate(view: View) {
+        Snackbar.make(
+            view,
+            "An update has just been downloaded.",
+            Snackbar.LENGTH_INDEFINITE
+        ).apply {
+            setAction("RESTART") { appUpdateManager?.completeUpdate() }
+            show()
+        }
     }
 
     fun onDestroy() {
