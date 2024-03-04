@@ -33,7 +33,7 @@ apply(from = "../common-dependencies.gradle")
 
 android {
     namespace = "com.yaman.runtime_permissions"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23

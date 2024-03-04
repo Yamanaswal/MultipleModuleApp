@@ -12,9 +12,12 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/background_task" />
             <option value="$PROJECT_DIR$/common_utils" />
+            <option value="$PROJECT_DIR$/dropdown" />
             <option value="$PROJECT_DIR$/file_system" />
-            <option value="$PROJECT_DIR$/fragments" />
+            <option value="$PROJECT_DIR$/fragment" />
+            <option value="$PROJECT_DIR$/google_play" />
             <option value="$PROJECT_DIR$/network_module" />
+            <option value="$PROJECT_DIR$/pagination" />
             <option value="$PROJECT_DIR$/pdf_viewer" />
             <option value="$PROJECT_DIR$/recycler_view" />
             <option value="$PROJECT_DIR$/runtime_permissions" />

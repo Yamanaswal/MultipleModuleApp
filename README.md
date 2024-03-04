@@ -10,9 +10,9 @@ maven("https://jitpack.io")
 
 ## Include All Modules
 ### For Groovy 
-implementation 'com.github.Yamanaswal:MultipleModuleApp:1.0.3'
+implementation 'com.github.Yamanaswal:MultipleModuleApp:1.0.4'
 ### For Kotlin Gradle - build.gradle.kts
-implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.3")
+implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4")
 
 ## Include No Modules
 

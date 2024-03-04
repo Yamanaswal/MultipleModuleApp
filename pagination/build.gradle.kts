@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
+    id("kotlin-kapt")
     kotlin("kapt")
 }
 
@@ -22,7 +23,7 @@ configure<ExtraPropertiesExtension> {
     set("useKtxWorkManager", false)
     set("useKtxRoom", false)
     set("useHilt", false)
-    set("useCoroutines", true)
+    set("useCoroutines", false)
     set("usePlayCore", false)
 }
 
@@ -30,11 +31,11 @@ apply(from = "../common-dependencies.gradle")
 
 
 android {
-    namespace = "com.yaman.file_system"
+    namespace = "com.yaman.pagination"
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -43,10 +44,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -56,9 +54,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
+
+    val paging_version = "3.2.1"
+    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+
 }
 
 publishing {
