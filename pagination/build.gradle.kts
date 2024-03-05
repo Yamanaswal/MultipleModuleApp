@@ -29,7 +29,6 @@ configure<ExtraPropertiesExtension> {
 
 apply(from = "../common-dependencies.gradle")
 
-
 android {
     namespace = "com.yaman.pagination"
     compileSdk = 34
