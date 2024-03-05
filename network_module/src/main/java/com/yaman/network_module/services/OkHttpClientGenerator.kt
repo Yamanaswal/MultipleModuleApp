@@ -15,7 +15,7 @@ class OkHttpClientGenerator {
             .build()
     }
 
-    fun createBasic(context: Context,level: Level = Level.BASIC): OkHttpClient {
+    fun createBasic(context: Context, level: Level = Level.BASIC): OkHttpClient {
         return OkHttpClient.Builder()
             //Network Connection - internet is on/off
             .addInterceptor(NetworkConnectionInterceptor(context))

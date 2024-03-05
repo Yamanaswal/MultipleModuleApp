@@ -1,4 +1,4 @@
-# Usage For Library
+# Setup For Library
 
 ## Dependency (Required)
 
@@ -44,6 +44,18 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "google_play")
    exclude(module = "dropdown")
 }
+
+
+# Usage For Library
+## network_module
+val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
+baseUrl = "",
+okHttpClient = OkHttpClientGenerator().createCore(),
+//            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
+), service = ApiInterface::class.java)
+
+
+
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
