@@ -49,7 +49,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 # Usage For Library
 ## network_module
 val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
-baseUrl = "",
+baseUrl = "www.baseurl.com/",
 okHttpClient = OkHttpClientGenerator().createCore(),
 //            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
 ), service = ApiInterface::class.java)
