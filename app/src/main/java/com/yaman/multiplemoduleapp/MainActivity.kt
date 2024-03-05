@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.app.ActivityCompat
+import com.yaman.network_module.NetworkCore
+import com.yaman.network_module.models.NetworkConfiguration
+import com.yaman.network_module.services.OkHttpClientGenerator
 import com.yaman.pdf_viewer.ui.PdfViewerActivity
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.OkHttpClient
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -47,9 +51,22 @@ class MainActivity : AppCompatActivity() {
                 stopService(it)
             }*/
         }
+
+        val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
+            baseUrl = "",
+            okHttpClient = OkHttpClientGenerator().createCore(),
+        ), service = ApiInterface::class.java)
+
+
     }
 
 
+
+
+
+}
+
+class ApiInterface {
 
 }
 

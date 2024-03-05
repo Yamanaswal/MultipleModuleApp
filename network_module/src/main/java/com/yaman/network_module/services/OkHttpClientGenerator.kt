@@ -8,6 +8,13 @@ import okhttp3.logging.HttpLoggingInterceptor.Level
 
 class OkHttpClientGenerator {
 
+    fun createCore(level: Level = Level.BASIC): OkHttpClient {
+        return OkHttpClient.Builder()
+            //Logging Level
+            .addInterceptor(LoggingInterceptor().create(level))
+            .build()
+    }
+
     fun createBasic(context: Context,level: Level = Level.BASIC): OkHttpClient {
         return OkHttpClient.Builder()
             //Network Connection - internet is on/off
