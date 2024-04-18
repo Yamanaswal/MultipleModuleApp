@@ -17,6 +17,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4")
 ### Include No Modules
 
 ### For Groovy
+```text
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module: "pdf_viewer")
    exclude(module: "runtime_permissions")
@@ -29,9 +30,10 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module: "google_play")
    exclude(module: "dropdown")
 }
+```
 
 ### For Kotlin Gradle - build.gradle.kts
-`
+```text
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "pdf_viewer")
    exclude(module = "runtime_permissions")
@@ -44,7 +46,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "google_play")
    exclude(module = "dropdown")
 }
-`
+```
 
 
 ## Usage For Library
