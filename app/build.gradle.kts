@@ -61,10 +61,6 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":background_task")))
-    //Local Module
-    implementation(project(mapOf("path" to ":common_utils")))
-    implementation(project(mapOf("path" to ":network_module")))
     implementation(project(mapOf("path" to ":pdf_viewer")))
 }
 

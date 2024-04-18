@@ -61,8 +61,9 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 #### 9) dropdown
 
 
+
 ### Network Module
-```kotlin
+```text
 val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
 baseUrl = "www.baseurl.com/",
 okHttpClient = OkHttpClientGenerator().createCore(),
@@ -70,11 +71,8 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 ), service = ApiInterface::class.java)
 ```
 
-### Pdf Viewer Module
-
-
 ### Common Utils
-```kotlin
+```text
 GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
    override fun uncaughtException(thread: Thread, throwable: Throwable) {
       Log.e("Application Level: ", "uncaughtException: " + throwable.localizedMessage)
