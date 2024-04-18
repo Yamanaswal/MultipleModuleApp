@@ -49,15 +49,34 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 ```
 
 
-## Usage For Library
+## Module - (Usage For Library)
+
 #### 1) pdf_viewer
-#### Pdf Viewer Library - select pdf from phone (media files) and show pdf view on mobile device
+#### => Pdf Viewer Library - Select pdf from phone (media files) and show pdf view on mobile device
 ```text
 startActivity(Intent(this, PdfViewerActivity::class.java))
 ```
 
-#### 2) runtime_permissions
+#### 2) runtime_permissions 
+#### => Runtime Permissions Library - Open permission dialog
+```text
+CoroutineScope(Dispatchers.IO).launch {
+            PermissionManager.requestPermissions(this@MainActivity, 123,
+             Manifest.permission.CAMERA,
+             Manifest.permission.BLUETOOTH)
+        }
+```
+
 #### 3) network_module
+#### => Networking Using Retrofit Library - Single Library for all networking tasks
+```text
+val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
+baseUrl = "www.baseurl.com/",
+okHttpClient = OkHttpClientGenerator().createCore(),
+//            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
+), service = ApiInterface::class.java)
+```
+
 #### 4) common_utils
 #### 5) background_task
 #### 6) fragment
@@ -68,13 +87,6 @@ startActivity(Intent(this, PdfViewerActivity::class.java))
 
 
 ### Network Module
-```text
-val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
-baseUrl = "www.baseurl.com/",
-okHttpClient = OkHttpClientGenerator().createCore(),
-//            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
-), service = ApiInterface::class.java)
-```
 
 ### Common Utils
 ```text

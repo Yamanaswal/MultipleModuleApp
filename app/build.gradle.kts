@@ -62,6 +62,7 @@ android {
 
 dependencies {
     implementation(project(mapOf("path" to ":pdf_viewer")))
+    implementation(project(mapOf("path" to ":runtime_permissions")))
 }
 
 // Allow references to generated code
