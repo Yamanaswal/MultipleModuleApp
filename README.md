@@ -77,7 +77,22 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 ), service = ApiInterface::class.java)
 ```
 
-#### 4) common_utils
+#### 4) common_utils 
+#### => Basic Functions for any Apps
+
+##### Exception Handler (App Level) - prevent app from crashing and show user some message. 
+```text
+GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
+   override fun uncaughtException(thread: Thread, throwable: Throwable) {
+      Log.e("Application Level: ", "uncaughtException: " + throwable.localizedMessage)
+      throwable.printStackTrace()
+   }
+})
+```
+##### 
+
+
+
 #### 5) background_task
 #### 6) fragment
 #### 7) recycler_view
@@ -89,14 +104,6 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 ### Network Module
 
 ### Common Utils
-```text
-GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
-   override fun uncaughtException(thread: Thread, throwable: Throwable) {
-      Log.e("Application Level: ", "uncaughtException: " + throwable.localizedMessage)
-      throwable.printStackTrace()
-   }
-})
-```
 
 
 
