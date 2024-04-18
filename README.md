@@ -1,20 +1,20 @@
-# Setup For Library
+# MultiModule Library (Setup)
 
-## Dependency (Required)
-
+## Dependency (Module:Project)
 ### For Groovy
 maven { url 'https://jitpack.io' }
 ### For Kotlin Gradle - build.gradle.kts
 maven("https://jitpack.io")
 
+## Dependency (Module:App) - Jitpack
+### Include All Modules
 
-## Include All Modules
 ### For Groovy 
 implementation 'com.github.Yamanaswal:MultipleModuleApp:1.0.4'
 ### For Kotlin Gradle - build.gradle.kts
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4")
 
-## Include No Modules
+### Include No Modules
 
 ### For Groovy
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
@@ -29,7 +29,6 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module: "google_play")
    exclude(module: "dropdown")
 }
-
 
 ### For Kotlin Gradle - build.gradle.kts
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
@@ -46,13 +45,45 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 }
 
 
-# Usage For Library
-## network_module
+## Usage For Library
+#### 1) pdf_viewer
+#### 2) runtime_permissions
+#### 3) network_module
+#### 4) common_utils
+#### 5) background_task
+#### 6) fragment
+#### 7) recycler_view
+#### 8) google_play
+#### 9) dropdown
+
+
+### Network Module
+```kotlin
 val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
 baseUrl = "www.baseurl.com/",
 okHttpClient = OkHttpClientGenerator().createCore(),
 //            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
 ), service = ApiInterface::class.java)
+```
+
+### Pdf Viewer Module
+
+
+### Common Utils
+```kotlin
+GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
+   override fun uncaughtException(thread: Thread, throwable: Throwable) {
+      Log.e("Application Level: ", "uncaughtException: " + throwable.localizedMessage)
+      throwable.printStackTrace()
+   }
+})
+```
+
+
+
+
+
+
 
 
 

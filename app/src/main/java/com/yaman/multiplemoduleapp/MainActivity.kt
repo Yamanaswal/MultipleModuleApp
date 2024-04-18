@@ -6,7 +6,6 @@ import com.yaman.network_module.NetworkCore
 import com.yaman.network_module.models.NetworkConfiguration
 import com.yaman.network_module.services.OkHttpClientGenerator
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.OkHttpClient
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -15,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        networkCoreTesting()
+
     }
 
     private fun networkCoreTesting() {
