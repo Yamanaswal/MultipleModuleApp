@@ -31,6 +31,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 }
 
 ### For Kotlin Gradle - build.gradle.kts
+`
 implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "pdf_viewer")
    exclude(module = "runtime_permissions")
@@ -43,6 +44,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "google_play")
    exclude(module = "dropdown")
 }
+`
 
 
 ## Usage For Library
