@@ -51,6 +51,11 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 
 ## Usage For Library
 #### 1) pdf_viewer
+#### Pdf Viewer Library - select pdf from phone (media files) and show pdf view on mobile device
+```text
+startActivity(Intent(this, PdfViewerActivity::class.java))
+```
+
 #### 2) runtime_permissions
 #### 3) network_module
 #### 4) common_utils
