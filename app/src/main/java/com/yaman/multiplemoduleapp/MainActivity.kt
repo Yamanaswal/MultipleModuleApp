@@ -1,11 +1,17 @@
 package com.yaman.multiplemoduleapp
 
+import android.Manifest
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.yaman.network_module.NetworkCore
-import com.yaman.network_module.models.NetworkConfiguration
-import com.yaman.network_module.services.OkHttpClientGenerator
+import android.util.Log
+import android.widget.Button
+import com.yaman.pdf_viewer.ui.PdfViewerActivity
+import com.yaman.runtime_permissions.coroutine_permissions.PermissionManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -13,27 +19,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        networkCoreTesting()
 
+        findViewById<Button>(R.id.button).setOnClickListener {
+//            demoPdfViewer()
+            demoRuntimePermissions()
+        }
     }
 
-    private fun networkCoreTesting() {
-
-        val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
-            baseUrl = "",
-            okHttpClient = OkHttpClientGenerator().createCore(),
-//            convertors = arrayListOf(GsonConverterFactory.create(),ScalarsConverterFactory.create())
-        ), service = ApiInterface::class.java)
-
+    private fun demoRuntimePermissions() {
+        CoroutineScope(Dispatchers.IO).launch {
+            PermissionManager.requestPermissions(this@MainActivity, 123, Manifest.permission.CAMERA, Manifest.permission.BLUETOOTH)
+        }
     }
 
-
-
-
-
-}
-
-class ApiInterface {
+    private fun demoPdfViewer() {
+        startActivity(Intent(this, PdfViewerActivity::class.java))
+    }
 
 }
 

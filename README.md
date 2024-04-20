@@ -49,20 +49,27 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
 ```
 
 
-## Usage For Library
+## Module - (Usage For Library)
+
 #### 1) pdf_viewer
-#### 2) runtime_permissions
+#### => Pdf Viewer Library - Select pdf from phone (media files) and show pdf view on mobile device
+```text
+startActivity(Intent(this, PdfViewerActivity::class.java))
+```
+
+#### 2) runtime_permissions 
+#### => Runtime Permissions Library - Open permission dialog
+```text
+CoroutineScope(Dispatchers.IO).launch {
+            PermissionManager.requestPermissions(this@MainActivity, 123,
+             Manifest.permission.CAMERA,
+             Manifest.permission.BLUETOOTH)
+        }
+```
+
 #### 3) network_module
-#### 4) common_utils
-#### 5) background_task
-#### 6) fragment
-#### 7) recycler_view
-#### 8) google_play
-#### 9) dropdown
-
-
-### Network Module
-```kotlin
+#### => Networking Using Retrofit Library - Single Library for all networking tasks
+```text
 val service = NetworkCore.createNetworkClient(this, NetworkConfiguration(
 baseUrl = "www.baseurl.com/",
 okHttpClient = OkHttpClientGenerator().createCore(),
@@ -70,11 +77,11 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 ), service = ApiInterface::class.java)
 ```
 
-### Pdf Viewer Module
+#### 4) common_utils 
+#### => Basic Functions for any Apps
 
-
-### Common Utils
-```kotlin
+##### Exception Handler (App Level) - prevent app from crashing and show user some message. (use in application class)
+```text
 GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
    override fun uncaughtException(thread: Thread, throwable: Throwable) {
       Log.e("Application Level: ", "uncaughtException: " + throwable.localizedMessage)
@@ -82,6 +89,28 @@ GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
    }
 })
 ```
+
+##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
+```text
+Logger.e(tag, message) // error logs
+Logger.d(tag, message) // debug logs
+Logger.i(tag, message) // info logs
+Logger.w(tag, message) // warning logs
+```
+
+
+
+#### 5) background_task
+#### 6) fragment
+#### 7) recycler_view
+#### 8) google_play
+#### 9) dropdown
+
+
+
+### Network Module
+
+### Common Utils
 
 
 

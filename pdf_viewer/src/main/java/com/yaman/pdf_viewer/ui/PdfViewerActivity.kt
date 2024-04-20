@@ -18,7 +18,7 @@ import com.yaman.pdf_viewer.adapters.PdfViewerAdapter
 import com.yaman.pdf_viewer.helpers.PdfSection
 import com.yaman.pdf_viewer.helpers.splitPdfIntoSections
 
-class PdfViewerActivity : AppCompatActivity() {
+open class PdfViewerActivity : AppCompatActivity() {
 
     private lateinit var pdfRenderer: PdfRenderer
 

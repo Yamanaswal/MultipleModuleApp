@@ -61,11 +61,8 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":background_task")))
-    //Local Module
-    implementation(project(mapOf("path" to ":common_utils")))
-    implementation(project(mapOf("path" to ":network_module")))
     implementation(project(mapOf("path" to ":pdf_viewer")))
+    implementation(project(mapOf("path" to ":runtime_permissions")))
 }
 
 // Allow references to generated code
