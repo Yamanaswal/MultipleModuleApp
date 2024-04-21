@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
     kotlin("kapt")
 }
 
@@ -34,7 +35,7 @@ android {
 
     defaultConfig {
         applicationId = "com.yaman.multiplemoduleapp"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -58,11 +59,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        dataBinding = true
+    }
 }
 
 dependencies {
     implementation(project(mapOf("path" to ":pdf_viewer")))
     implementation(project(mapOf("path" to ":runtime_permissions")))
+    implementation(project(mapOf("path" to ":recycler_view")))
 }
 
 // Allow references to generated code
