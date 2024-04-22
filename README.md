@@ -80,7 +80,7 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 #### 4) common_utils 
 #### => Basic Functions for any Apps
 
-1. ##### Exception Handler (App Level) - prevent app from crashing and show user some message. (use in application class)
+##### Exception Handler (App Level) - prevent app from crashing and show user some message. (use in application class)
 ```text
 GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
    override fun uncaughtException(thread: Thread, throwable: Throwable) {
@@ -90,7 +90,7 @@ GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
 })
 ```
 
-2. ##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
+##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
 ```text
 Logger.e(tag, message) // error logs
 Logger.d(tag, message) // debug logs
@@ -98,14 +98,14 @@ Logger.i(tag, message) // info logs
 Logger.w(tag, message) // warning logs
 ```
 
-3. ##### Single Click Listener - prevent user from doing multiple clicks on a button
+##### Single Click Listener - prevent user from doing multiple clicks on a button
 ```text
 settingsButton.setSingleOnClickListener {
     showSettingsScreen() // click event here
 }
 ```
 
-4. ##### Session Manager - shared preferences class for local storage
+##### Session Manager - shared preferences class for local storage
 ```text
 //no comments
 ```
@@ -119,7 +119,7 @@ settingsButton.setSingleOnClickListener {
 #### 7) recycler_view
 #### => Recycler View customs classes and utils
 
-1. #### GenericAdapter - used for custom recycler - adapter
+#### a) GenericAdapter - used for custom recycler - adapter
 ```text
         val rv = findViewById<RecyclerView>(R.id.recyclerView)
         rv.visibility = View.VISIBLE
@@ -149,7 +149,7 @@ settingsButton.setSingleOnClickListener {
         adapter.updateList(demoArr)
 ```
 
-2. #### GenericAdapterPagination - used for custom pagination globally
+#### b) GenericAdapterPagination - used for custom pagination globally
 ```text
         val rv = findViewById<RecyclerView>(R.id.recyclerView)
         rv.visibility = View.VISIBLE
