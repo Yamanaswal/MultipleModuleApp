@@ -25,10 +25,11 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module: "file_system")
    exclude(module: "common_utils")
    exclude(module: "background_task")
-   exclude(module: "fragments")
+   exclude(module: "fragment")
    exclude(module: "recycler_view")
    exclude(module: "google_play")
    exclude(module: "dropdown")
+   exclude(module: "pagination")
 }
 ```
 
@@ -45,6 +46,7 @@ implementation("com.github.Yamanaswal:MultipleModuleApp:1.0.4") {
    exclude(module = "recycler_view")
    exclude(module = "google_play")
    exclude(module = "dropdown")
+   exclude(module: "pagination")
 }
 ```
 
