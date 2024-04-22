@@ -80,7 +80,7 @@ okHttpClient = OkHttpClientGenerator().createCore(),
 #### 4) common_utils 
 #### => Basic Functions for any Apps
 
-##### Exception Handler (App Level) - prevent app from crashing and show user some message. (use in application class)
+* ##### Exception Handler (App Level) - prevent app from crashing and show user some message. (use in application class)
 ```text
 GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
    override fun uncaughtException(thread: Thread, throwable: Throwable) {
@@ -90,13 +90,27 @@ GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
 })
 ```
 
-##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
+* ##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
 ```text
 Logger.e(tag, message) // error logs
 Logger.d(tag, message) // debug logs
 Logger.i(tag, message) // info logs
 Logger.w(tag, message) // warning logs
 ```
+
+* ##### Single Click Listener - prevent user from doing multiple clicks on a button
+```text
+settingsButton.setSingleOnClickListener {
+    showSettingsScreen() // click event here
+}
+```
+
+* ##### Session Manager - shared preferences class for local storage
+```text
+//no comments
+```
+
+
 
 #### 5) background_task
 
