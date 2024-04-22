@@ -99,8 +99,78 @@ Logger.w(tag, message) // warning logs
 ```
 
 #### 5) background_task
+
 #### 6) fragment
+
 #### 7) recycler_view
+#### => Recycler View customs classes and utils
+
+#### a) GenericAdapter - used for custom recycler - adapter
+```text
+        val rv = findViewById<RecyclerView>(R.id.recyclerView)
+        rv.visibility = View.VISIBLE
+
+        val demoArr = ArrayList<String>()
+
+        for (i in 1..100) {
+            demoArr.add("Date ${i}")
+        }
+
+        Log.e("TAG", "demoRecyclerViewLongList: $demoArr")
+
+        val layoutManager = LinearLayoutManager(this) // or GridLayoutManager(this, spanCount)
+        rv.layoutManager = layoutManager
+
+        adapter = object : GenericAdapter<String>(R.layout.text_item){
+            override fun onBindViewHold(holder: BaseViewHolder<String>, position: Int) {
+                val binding = holder.binding as TextItemBinding
+                binding.textId.text = getItem(position)
+                Log.e("TAG", "onBindViewHold: $position - ${getItem(position)}")
+            }
+
+        }
+
+        rv.adapter = adapter
+
+        adapter.updateList(demoArr)
+```
+
+#### b) GenericAdapterPagination - used for custom pagination globally
+```text
+        val rv = findViewById<RecyclerView>(R.id.recyclerView)
+        rv.visibility = View.VISIBLE
+
+        val demoArr = ArrayList<String>()
+
+        for (i in 1..1000) {
+            demoArr.add("Date ${i}")
+        }
+
+        val layoutManager = LinearLayoutManager(this) // or GridLayoutManager(this, spanCount)
+        rv.layoutManager = layoutManager
+
+        val pageSize = 50 // Number of items per page
+        adapter = object : GenericAdapterPagination<String>(
+            R.layout.text_item, {
+                // Load more data
+                adapter.addMoreList(demoArr, pageSize, it)
+            }) {
+
+            override fun onBindViewHold(holder: BaseViewHolder<String>, position: Int) {
+                val binding = holder.binding as TextItemBinding
+                binding.textId.text = getItem(position)
+                Log.e("TAG", "onBindViewHold: $position - ${getItem(position)}")
+            }
+        }
+
+        rv.adapter = adapter
+
+        adapter.setRecyclerViewScrollListener(rv)
+
+        // Load initial data (first page)
+        adapter.updateInitialData(demoArr, pageSize)
+```
+
 #### 8) google_play
 #### 9) dropdown
 
