@@ -90,7 +90,7 @@ GlobalExceptionHandler.setupExceptionHandler(object : ExceptionListener {
 })
 ```
 
-1. ##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
+2. ##### Logger - logs message (wrapper above android native log class) - Note: isDebuggable == true (default)
 ```text
 Logger.e(tag, message) // error logs
 Logger.d(tag, message) // debug logs
@@ -98,14 +98,14 @@ Logger.i(tag, message) // info logs
 Logger.w(tag, message) // warning logs
 ```
 
-1. ##### Single Click Listener - prevent user from doing multiple clicks on a button
+3. ##### Single Click Listener - prevent user from doing multiple clicks on a button
 ```text
 settingsButton.setSingleOnClickListener {
     showSettingsScreen() // click event here
 }
 ```
 
-1. ##### Session Manager - shared preferences class for local storage
+4. ##### Session Manager - shared preferences class for local storage
 ```text
 //no comments
 ```
@@ -149,7 +149,7 @@ settingsButton.setSingleOnClickListener {
         adapter.updateList(demoArr)
 ```
 
-1. #### GenericAdapterPagination - used for custom pagination globally
+2. #### GenericAdapterPagination - used for custom pagination globally
 ```text
         val rv = findViewById<RecyclerView>(R.id.recyclerView)
         rv.visibility = View.VISIBLE
