@@ -98,23 +98,11 @@ Logger.i(tag, message) // info logs
 Logger.w(tag, message) // warning logs
 ```
 
-
-
 #### 5) background_task
 #### 6) fragment
 #### 7) recycler_view
 #### 8) google_play
 #### 9) dropdown
-
-
-
-### Network Module
-
-### Common Utils
-
-
-
-
 
 
 
